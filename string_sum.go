@@ -27,7 +27,7 @@ var (
 
 func StringSum(input string) (output string, err error) {
 	if len(strings.TrimSpace(input)) == 0 {
-		return "", fmt.Errorf("%s", errorEmptyInput.Error())
+		return "", fmt.Errorf("%w", errorEmptyInput)
 	}
 
 	pos := 0
@@ -50,14 +50,14 @@ func StringSum(input string) (output string, err error) {
 
 	var numberCount int = 2
 	if len(noEmptyStrNumbers) > numberCount {
-		return "", fmt.Errorf("%s", errorNotTwoOperands.Error())
+		return "", fmt.Errorf("%w", errorNotTwoOperands)
 	}
 
 	var sum int = 0
 	for i := 0; i < len(noEmptyStrNumbers); i++ {
 		num, err := strconv.Atoi(strings.ReplaceAll(strings.TrimSpace(noEmptyStrNumbers[i]), " ", ""))
 		if err != nil {
-			return "", fmt.Errorf("%s", err.Error())
+			return "", fmt.Errorf("%w", err)
 		}
 
 		sum = sum + num
