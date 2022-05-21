@@ -49,7 +49,7 @@ func StringSum(input string) (output string, err error) {
 	}
 
 	var numberCount int = 2
-	if len(noEmptyStrNumbers) > numberCount {
+	if len(noEmptyStrNumbers) != numberCount {
 		return "", fmt.Errorf("%w", errorNotTwoOperands)
 	}
 
